@@ -15,7 +15,7 @@ jobs:
         uses: espressif/github-actions/upload_components@master
         with:
           name: "esp32-camera"
-          version: "git"
+          version: "${{ env.GITHUB_REF | replace('refs/tags/v', '') }}"
           namespace: "espressif"
           service_url: ${{ secrets.IDF_COMPONENT_API_URL }}
           api_token: ${{ secrets.IDF_COMPONENT_API_TOKEN }}
